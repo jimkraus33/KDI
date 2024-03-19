@@ -1,0 +1,22 @@
+
+
+
+.navbar {
+    display: grid;
+    grid-template-columns: auto 1fr; 
+  }
+  
+  
+  .menu {
+    justify-self: end; 
+  }
+
+  
+  
+.form-layout {
+    border-radius: 15px;
+    width: 550px;
+}
+
+
+

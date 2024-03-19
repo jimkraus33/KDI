@@ -1,0 +1,42 @@
+{% extends "drapes/layout.html" %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+    
+    <br>
+    <a class="btn btn-primary btn-sm" href="{% url 'create_projects' %}">
+
+        create a new project
+    </a>
+    <hr>
+
+    <table class="table table-dark table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col"> ID </th>
+            <th scope="col"> Name </th>                       
+            <th scope="col"> Location </th>                       
+            <th scope="col"> Company </th>                       
+            <th scope="col"> Manager </th>                       
+            <th scope="col"> View </th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {% if projects %}
+            {% for project in projects %}
+                <tr class="table-active">
+                    <td>{{ project.id }}</td>
+                    <td>{{ project.name }}</td>                                        
+                    <td>{{ project.location }}</td>                                        
+                    <td>{{ project.company }}</td>                                        
+                    <td>{{ project.manager }}</td>                                        
+                    <td><a href="{% url 'view_projects' project.id %}">View Project</a></td>
+                </tr>                
+            {% endfor %}
+        {% endif %}
+        </tbody>
+      </table>
+    
+{% endblock %}

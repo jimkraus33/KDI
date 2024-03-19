@@ -1,0 +1,32 @@
+{% extends "drapes/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}<br>
+
+{% if messages %}    
+    {% for message in messages %}
+        {% if message.tags %}
+            {{ message }}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+<div class="container bg-dark shadow-ms p-2 form-layout">
+    <h3>Log in to your account</h3>    
+    <hr>
+    <br>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-primary w-100 btn-block p-2">Click to Log In</button>
+    </form>
+    <br>
+    
+    <div class="text-center">
+        <p>Don't have an account? </p> <a href="{% url 'register' %}">Register</a>
+    </div>
+</div>
+
+{% endblock %}

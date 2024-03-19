@@ -1,0 +1,28 @@
+{% extends "drapes/layout.html" %}
+
+{% block title %}View Clients{% endblock %}
+
+{% block content %}
+    <div class="card mt-3">        
+        
+        <div class="card-body">
+            <strong>
+                {{ client.name|upper }}
+            </strong>
+            <hr>
+            <p><strong> ID: </strong> {{ contact.id }}</p>
+            <p><strong> Location: </strong> {{ client.location }}</p>
+            <p><strong> Email: </strong> {{ client.email }}</p>
+            <p><strong> Phone: </strong> {{ client.phone }}</p>
+            <p><strong> Contact: </strong> {{ client.contacts }}</p>
+            <p><strong> Date Created: </strong> {{ client.date_created }}</p>
+            
+        </div>        
+    </div>
+    <br>
+    <a href="{% url 'update_clients' client.id %}" class="btn btn-info">Update</a>
+    <a href="{% url 'delete_clients' client.id %}" class="btn btn-danger">Delete</a>
+    
+    
+    
+{% endblock %}

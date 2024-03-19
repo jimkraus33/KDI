@@ -1,0 +1,42 @@
+{% extends "drapes/layout.html" %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block content %}
+    
+    <br>
+    <a class="btn btn-primary btn-sm" href="{% url 'create_contacts' %}">
+
+        create a new contact
+    </a>
+    <hr>
+
+    <table class="table table-dark table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col"> ID </th>
+            <th scope="col"> Name </th>            
+            <th scope="col"> Email </th>
+            <th scope="col"> Phone </th>            
+            <th scope="col"> Record Created </th>
+            <th scope="col"> View </th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {% if contacts %}
+            {% for contact in contacts %}
+                <tr class="table-active">
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.name }}</td>                    
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phone }}</td>                    
+                    <td>{{ contact.date_created }}</td>
+                    <td><a href="{% url 'view_contacts' contact.id %}">View Contact</a></td>
+                </tr>                
+            {% endfor %}
+        {% endif %}
+        </tbody>
+      </table>
+    
+{% endblock %}

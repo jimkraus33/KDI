@@ -1,0 +1,26 @@
+{% extends "drapes/layout.html" %}
+
+{% block title %}View Contact{% endblock %}
+
+{% block content %}
+    <div class="card mt-3">        
+        
+        <div class="card-body">
+            <strong>
+                {{ contact.name|upper }}                
+            </strong>
+            <hr>
+            <p><strong> ID: </strong> {{ contact.id }}</p>
+            <p><strong> Email: </strong> {{ contact.email }}</p>
+            <p><strong> Phone: </strong> {{ contact.phone }}</p>
+            <p><strong> Date Created: </strong> {{ contact.date_created }}</p>
+            
+        </div>        
+    </div>
+    <br>
+    <a href="{% url 'update_contacts' contact.id %}" class="btn btn-info">Update</a>
+    <a href="{% url 'delete_contacts' contact.id %}" class="btn btn-danger">Delete</a>
+    
+    
+    
+{% endblock %}
